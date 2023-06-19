@@ -13,3 +13,10 @@ html.dark {
 button, [type='button'], [type='reset'], [type='submit'] {
   background-color: var(--n-color);
 }
+
+.header {
+  background-image: url('@/assets/header-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

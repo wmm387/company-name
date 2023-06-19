@@ -1,21 +1,24 @@
 <script setup lang="ts">
-import descIcon1 from '@/assets/desc-icon-1.png'
-import descIcon2 from '@/assets/desc-icon-2.png'
-import descIcon3 from '@/assets/desc-icon-3.png'
-import descIcon4 from '@/assets/desc-icon-4.png'
+import { NCarousel } from 'naive-ui'
+import icon_easy from '@/assets/naming/icon-easy.png'
+import icon_excellent from '@/assets/naming/icon-excellent.png'
+import icon_pass from '@/assets/naming/icon-pass.png'
+import icon_quick from '@/assets/naming/icon-quick.png'
 
 const descList = [
-  { icon: descIcon1, text: '易读好记' },
-  { icon: descIcon2, text: '注册通过率高' },
-  { icon: descIcon3, text: '高分美名' },
-  { icon: descIcon4, text: '急速起名' },
+  { icon: icon_easy, text: '易读好记' },
+  { icon: icon_pass, text: '注册通过率高' },
+  { icon: icon_excellent, text: '高分美名' },
+  { icon: icon_quick, text: '急速起名' },
 ]
 
-const textList = [
-  { text: '基于企业工商大数据', text1: '分析注册通过率' },
-  { text: '系统结合唐诗宋词', text1: '公司起名更优雅' },
-  { text: '独家算法结合行业', text1: '五行喜忌' },
-]
+const carouselRef = ref()
+function prev() {
+  carouselRef.value.prev()
+}
+function next() {
+  carouselRef.value.next()
+}
 </script>
 
 <template>
@@ -53,25 +56,29 @@ const textList = [
         </div>
       </div>
     </div>
-    <div mt-24 class="header" w-full flex-cc>
+    <div mt-24 class="bg2" w-full flex-cc>
       <div my-24 flex>
         <div h-35 w-78 flex-col-cs text="2xl white">
-          <p text-42 opacity-30>
-            “
-          </p>
+          <img src="@/assets/naming/quote.png" mb-4 w-12>
           <p>智能公司</p>
           <p>起名的亮点</p>
         </div>
-        <div
-          v-for="(item) in textList" :key="item.text"
-          mr-5 h-35 w-78 flex-col-cs px-7 bg="#ffffffCC"
-        >
-          <div text="xl #222">
-            <p mb-2>
-              {{ item.text }}
-            </p>
-            <p>{{ item.text1 }}</p>
-          </div>
+        <div flex-cc>
+          <img src="@/assets/naming/banner-prev.png" mx-8 h-4 cursor-pointer @click="prev">
+          <NCarousel
+            ref="carouselRef"
+            :slides-per-view="3"
+            :show-dots="false"
+            :space-between="20"
+            :loop="false"
+            w-4xl
+          >
+            <img src="@/assets/naming/banner1.png">
+            <img src="@/assets/naming/banner2.png">
+            <img src="@/assets/naming/banner3.png">
+            <img src="@/assets/naming/banner4.png">
+          </NCarousel>
+          <img src="@/assets/naming/banner-next.png" mx-8 h-4 cursor-pointer @click="next">
         </div>
       </div>
     </div>
@@ -81,8 +88,8 @@ const textList = [
 </template>
 
 <style scoped lang="scss">
-.header {
-  background: url('@/assets/header-bg.png');
+.bg2 {
+  background: url('@/assets/naming/bg2.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

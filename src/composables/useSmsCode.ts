@@ -25,9 +25,17 @@ export default function useSmsCode() {
     if (loading.value)
       return
     loading.value = true
-    const { data } = await api.sendSmsCode(phone)
-    if (data)
+    const { msg, success } = await api.sendSmsCode(phone)
+    if (success) {
       start()
+    }
+    else {
+      window.$dialog?.error({
+        title: '错误',
+        content: msg || '服务器出错',
+        positiveText: '好的',
+      })
+    }
     loading.value = false
   }
 

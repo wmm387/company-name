@@ -32,13 +32,6 @@
 </template>
 
 <style scoped lang="scss">
-.header {
-  background-image: url('@/assets/header-bg.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 .form {
   background-image: url('@/assets/form-bg.png');
   background-size: cover;

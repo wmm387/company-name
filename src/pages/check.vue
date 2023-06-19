@@ -1,16 +1,25 @@
 <script setup lang="ts">
+import icon_archive from '@/assets/check/icon-archive.png'
+import icon_building from '@/assets/check/icon-building.png'
+import icon_cancel from '@/assets/check/icon-cancel.png'
+import icon_data from '@/assets/check/icon-data.png'
+import icon_intelligent from '@/assets/check/icon-intelligent.png'
+import icon_pass from '@/assets/check/icon-pass.png'
+import icon_service from '@/assets/check/icon-service.png'
+import icon_upgrade from '@/assets/check/icon-upgrade.png'
+
 const descList = [
-  { icon: 'i-carbon:db2-database', text: '大数据', text1: 'AI智能分析' },
-  { icon: 'i-carbon:building-insights-3', text: '6000万+企业', text1: '数据实时更新' },
-  { icon: 'i-carbon:white-paper', text: '通过率', text1: '高达98%' },
-  { icon: 'i-carbon:cloud-services', text: '已成功服务', text1: '已成功服务' },
+  { icon: icon_data, text: '大数据', text1: 'AI智能分析' },
+  { icon: icon_building, text: '6000万+企业', text1: '数据实时更新' },
+  { icon: icon_pass, text: '通过率', text1: '高达98%' },
+  { icon: icon_service, text: '已成功服务', text1: '已成功服务' },
 ]
 
 const textList = [
-  { icon: 'i-carbon:archive', text: '基于工商数据', text1: '对比数据库，排除现有企业名称' },
-  { icon: 'i-carbon:ibm-cloud-transit-gateway', text: '字号联想算法', text1: '字形字义字音，智能识别' },
-  { icon: 'i-carbon:intent-request-upgrade', text: '数据实时更新 ', text1: '排除正被别人提交审核的名字' },
-  { icon: 'i-carbon:incomplete-cancel', text: '行业关联算法', text1: '检测相似的业内品牌名称' },
+  { icon: icon_archive, text: '基于工商数据', text1: '对比数据库，排除现有企业名称' },
+  { icon: icon_intelligent, text: '字号联想算法', text1: '字形字义字音，智能识别' },
+  { icon: icon_upgrade, text: '数据实时更新 ', text1: '排除正被别人提交审核的名字' },
+  { icon: icon_cancel, text: '行业关联算法', text1: '检测相似的业内品牌名称' },
 ]
 </script>
 
@@ -31,10 +40,11 @@ const textList = [
     </div>
     <div mt="-12" flex-cc>
       <div
-        v-for="item in descList" :key="item.text"
+        v-for="item in descList"
+        :key="item.text"
         m-3 h-28 w-74 flex-cc bg-white px-7 shadow-lg
       >
-        <div :class="item.icon" mr-6 text-4xl />
+        <img :src="item.icon" mr-8 w-8>
         <div>
           <div text="lg #222">
             {{ item.text }}
@@ -54,12 +64,13 @@ const textList = [
       </div>
       <div mt-12 flex>
         <div
-          v-for="(item, index) in textList" :key="item.text"
+          v-for="(item, index) in textList"
+          :key="item.text"
           :style="{ backgroundColor: index % 2 ? '#ebebeb' : '#f5f5f5' }"
           h-42 w-80 flex-col-cs px-12
         >
           <div mb-5 flex-cc text="#222">
-            <div :class="item.icon" mr-2 text-xl />
+            <img :src="item.icon" mr-2 w-6>
             <div text-lg>
               {{ item.text }}
             </div>
@@ -77,10 +88,4 @@ const textList = [
 </template>
 
 <style scoped lang="scss">
-.header {
-  background: url('@/assets/header-bg.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
 </style>

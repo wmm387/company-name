@@ -1,5 +1,12 @@
 import axios from 'axios'
 
+interface ApiResponse<T = any> {
+  data: T
+  code: number
+  msg: string
+  success: boolean
+}
+
 const api = axios.create({
   baseURL: '/api',
   timeout: 30000,
@@ -27,7 +34,7 @@ api.interceptors.request.use(
 // 添加响应拦截器
 api.interceptors.response.use(
   (response) => {
-    // return response.data
+    return response.data
     if (response.data.code === 200) {
       return response.data
     }
@@ -45,4 +52,4 @@ api.interceptors.response.use(
   },
 )
 
-export default api.request
+export default api.request<any, ApiResponse>

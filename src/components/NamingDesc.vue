@@ -24,7 +24,7 @@ const descList = [
         m-2.5 h-64 w-78
       >
         <div relative>
-          <img src="@/assets/header-bg.png" w-full>
+          <img src="@/assets/naming/desc-bg.png" w-full>
           <div top="1/2" absolute left-6 text="xl white" class="-translate-y-1/2">
             {{ item.title }}
           </div>
