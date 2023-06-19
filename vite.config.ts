@@ -1,0 +1,61 @@
+import path from 'node:path'
+import { defineConfig } from 'vite'
+import Vue from '@vitejs/plugin-vue'
+import Pages from 'vite-plugin-pages'
+import Components from 'unplugin-vue-components/vite'
+import AutoImport from 'unplugin-auto-import/vite'
+import UnoCSS from 'unocss/vite'
+
+export default defineConfig({
+  resolve: {
+    alias: {
+      '@/': `${path.resolve(__dirname, 'src')}/`,
+    },
+  },
+  server: {
+    port: 3333,
+    hmr: true,
+    proxy: {
+      '/api': {
+        target: 'http://wxvote.bsjms.cn/qsm/',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/api/, ''),
+      },
+    },
+  },
+  plugins: [
+    Vue({
+      script: {
+        propsDestructure: true,
+        defineModel: true,
+      },
+    }),
+
+    // https://github.com/hannoeru/vite-plugin-pages
+    Pages(),
+
+    // https://github.com/antfu/unplugin-auto-import
+    AutoImport({
+      imports: [
+        'vue',
+        'vue-router',
+        '@vueuse/core',
+      ],
+      dts: true,
+      dirs: [
+        './src/composables',
+      ],
+      vueTemplate: true,
+    }),
+
+    // https://github.com/antfu/vite-plugin-components
+    Components({
+      dts: true,
+    }),
+
+    // https://github.com/antfu/unocss
+    // see uno.config.ts for config
+    UnoCSS(),
+  ],
+
+})
