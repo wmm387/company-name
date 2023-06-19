@@ -1,6 +1,6 @@
 <template>
   <div min-w-7xl>
-    <div class="header" py-48>
+    <div class="header" py-58>
       <div text="#F4F7FC" m-auto max-w-7xl>
         <div mb-6 text="4xl" font-bold>
           企业注册、公司起名、记账报税
@@ -10,7 +10,7 @@
         </div>
       </div>
     </div>
-    <div bg="#e9effe" flex justify-center py-12 text-base>
+    <div class="form" flex justify-center py-12 text-base>
       <div flex-col-cs>
         <div>
           <button px-8 py-4 text="#F4F7FC" bg="#1054DD">
@@ -33,6 +33,16 @@
 
 <style scoped lang="scss">
 .header {
-  background: url('@/assets/header-bg.png');
+  background-image: url('@/assets/header-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.form {
+  background-image: url('@/assets/form-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 </style>

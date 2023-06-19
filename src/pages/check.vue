@@ -79,5 +79,8 @@ const textList = [
 <style scoped lang="scss">
 .header {
   background: url('@/assets/header-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 </style>
