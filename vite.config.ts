@@ -12,17 +12,6 @@ export default defineConfig({
       '@/': `${path.resolve(__dirname, 'src')}/`,
     },
   },
-  server: {
-    port: 3333,
-    hmr: true,
-    proxy: {
-      '/api': {
-        target: 'http://wxvote.bsjms.cn/qsm/',
-        changeOrigin: true,
-        rewrite: path => path.replace(/^\/api/, ''),
-      },
-    },
-  },
   plugins: [
     Vue({
       script: {

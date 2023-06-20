@@ -8,7 +8,7 @@ interface ApiResponse<T = any> {
 }
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: 'http://wxvote.bsjms.cn/qsm/',
   timeout: 30000,
   headers: {},
 })
