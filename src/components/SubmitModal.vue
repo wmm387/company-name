@@ -82,7 +82,7 @@ defineExpose({ open })
         <NInput v-model:value="loginForm.userName" placeholder="请输入姓名" />
       </NFormItem>
       <NFormItem path="phone">
-        <NInput v-model:value="loginForm.phone" placeholder="请输入手机号" @input="handlePhoneInput" />
+        <NInput v-model:value="loginForm.phone" placeholder="请输入手机号" maxlength="11" @input="handlePhoneInput" />
       </NFormItem>
       <NFormItem v-if="showCodeInput" path="code">
         <div class="w-full flex-cc">

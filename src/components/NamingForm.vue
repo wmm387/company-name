@@ -85,7 +85,7 @@ function submit() {
       <button bg="#1054DD" w-54 py-4 text="#F4F7FC" @click="submit">
         智能起名
       </button>
-      <CitySelect ref="citySelectRef" absolute top-14 @select-city="selectCity" />
+      <CitySelect ref="citySelectRef" absolute top-14 @select="selectCity" />
       <IndustryTypeSelect ref="industryTypeSelectRef" absolute top-14 @select="selectIndustryType" />
     </div>
   </div>
