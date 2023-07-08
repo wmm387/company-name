@@ -18,6 +18,7 @@ declare module 'vue' {
     ResultModal: typeof import('./src/components/ResultModal.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ScopeForm: typeof import('./src/components/ScopeForm.vue')['default']
     SubmitModal: typeof import('./src/components/SubmitModal.vue')['default']
     TheFooter: typeof import('./src/components/TheFooter.vue')['default']
     TheHeader: typeof import('./src/components/TheHeader.vue')['default']

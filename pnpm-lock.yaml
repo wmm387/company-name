@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 dependencies:
   '@vueuse/core':
     specifier: ^10.1.2
@@ -51,7 +47,7 @@ devDependencies:
     version: 8.43.0
   lint-staged:
     specifier: ^13.2.2
-    version: 13.2.2
+    version: 13.2.3
   pnpm:
     specifier: ^8.6.0
     version: 8.6.2
@@ -69,7 +65,7 @@ devDependencies:
     version: 5.1.3
   unocss:
     specifier: ^0.53.0
-    version: 0.53.1(postcss@8.4.24)(vite@4.3.9)
+    version: 0.53.1(vite@4.3.9)
   unplugin-auto-import:
     specifier: ^0.16.4
     version: 0.16.4(@vueuse/core@10.2.0)
@@ -1053,11 +1049,9 @@ packages:
       sirv: 2.0.3
     dev: true
 
-  /@unocss/postcss@0.53.1(postcss@8.4.24):
+  /@unocss/postcss@0.53.1:
     resolution: {integrity: sha512-vuUj/Tsvn6/YlEYp/AezyjoZLNBp+YomwpQctNZAC5ged5cqKfaw+oISw1LYzi/48Ynx7cV/4XqikApuozrvRQ==}
     engines: {node: '>=14'}
-    peerDependencies:
-      postcss: ^8.4.21
     dependencies:
       '@unocss/config': 0.53.1
       '@unocss/core': 0.53.1
@@ -3491,8 +3485,8 @@ packages:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
     dev: true
 
-  /lint-staged@13.2.2:
-    resolution: {integrity: sha512-71gSwXKy649VrSU09s10uAT0rWCcY3aewhMaHyl2N84oBk4Xs9HgxvUp3AYu+bNsK4NrOYYxvSgg7FyGJ+jGcA==}
+  /lint-staged@13.2.3:
+    resolution: {integrity: sha512-zVVEXLuQIhr1Y7R7YAWx4TZLdvuzk7DnmrsTNL0fax6Z3jrpFcas+vKbzxhhvp6TA55m1SQuWkpzI1qbfDZbAg==}
     engines: {node: ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
@@ -5062,7 +5056,7 @@ packages:
       '@types/unist': 2.0.6
     dev: true
 
-  /unocss@0.53.1(postcss@8.4.24)(vite@4.3.9):
+  /unocss@0.53.1(vite@4.3.9):
     resolution: {integrity: sha512-0lRblA8hX7VUu5dywbcStzm590Iz5ahSJGsMNKNH3+u9C7AfJcKT8epxjkIkJWQBNJLD5vsao4SuuhLWB7eMQQ==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -5075,7 +5069,7 @@ packages:
       '@unocss/cli': 0.53.1
       '@unocss/core': 0.53.1
       '@unocss/extractor-arbitrary-variants': 0.53.1
-      '@unocss/postcss': 0.53.1(postcss@8.4.24)
+      '@unocss/postcss': 0.53.1
       '@unocss/preset-attributify': 0.53.1
       '@unocss/preset-icons': 0.53.1
       '@unocss/preset-mini': 0.53.1
@@ -5092,7 +5086,6 @@ packages:
       '@unocss/transformer-variant-group': 0.53.1
       '@unocss/vite': 0.53.1(vite@4.3.9)
     transitivePeerDependencies:
-      - postcss
       - rollup
       - supports-color
       - vite
@@ -5509,3 +5502,7 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
