@@ -5,6 +5,8 @@ import api from '@/api'
 
 const props = defineProps<{ data: any }>()
 
+const emit = defineEmits(['setRes'])
+
 const show = ref(false)
 
 function open() {
@@ -58,10 +60,9 @@ async function handleSubmit() {
       ...loginForm,
     })
     if (data)
-      resultModalRef.value.open(data)
-
-    // window.$message?.success(t('login.success'))
-    // show.value = false
+      emit('setRes', data)
+      // resultModalRef.value.open(data)
+    show.value = false
     loading.value = false
   }
   catch (err) {

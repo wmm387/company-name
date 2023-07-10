@@ -13,6 +13,7 @@
   "dependencies": {
     "@vueuse/core": "^10.1.2",
     "axios": "^0.27.2",
+    "copy-to-clipboard": "^3.3.3",
     "devtools-detector": "^2.0.14",
     "naive-ui": "^2.34.4",
     "vue": "^3.3.4",

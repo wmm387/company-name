@@ -2,11 +2,12 @@
 import { useDialog } from 'naive-ui'
 import arrowDown from '@/assets/icon-arrow-down.png'
 
+const emit = defineEmits(['setRes'])
+
 const formData = ref({
-  actionType: 0, // 起名
+  actionType: 2, // 经营范围
   cityName: '苏州市',
   industryType: '网络科技',
-  companyName: '',
 })
 
 const citySelectRef = ref()
@@ -49,6 +50,10 @@ function submit() {
 
   showPhoneModal()
 }
+
+function setRes(res) {
+  emit('setRes', res)
+}
 </script>
 
 <template>
@@ -79,5 +84,5 @@ function submit() {
       <IndustryTypeSelect ref="industryTypeSelectRef" absolute top-14 @select="selectIndustryType" />
     </div>
   </div>
-  <SubmitModal ref="modalRef" :data="formData" />
+  <SubmitModal ref="modalRef" :data="formData" @set-res="setRes" />
 </template>
