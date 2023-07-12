@@ -1,3 +1,11 @@
+<script setup lang="ts">
+const res = ref<{ companyName: string; key: string }[]>([])
+
+function setRes(data) {
+  res.value = data
+}
+</script>
+
 <template>
   <div min-w-7xl>
     <div class="header" py-58>
@@ -23,10 +31,11 @@
             公司核名
           </button>
         </div>
-        <NamingForm />
+        <NamingForm @set-res="setRes" />
       </div>
     </div>
-    <RegisterDesc mt-24 />
+    <NamingRes v-if="res.length" mt-24 :res="res" />
+    <RegisterDesc v-else mt-24 />
     <TheFooter mt-24 />
   </div>
 </template>

@@ -14,6 +14,7 @@ declare module 'vue' {
     NaiveProvider: typeof import('./src/components/NaiveProvider.vue')['default']
     NamingDesc: typeof import('./src/components/NamingDesc.vue')['default']
     NamingForm: typeof import('./src/components/NamingForm.vue')['default']
+    NamingRes: typeof import('./src/components/NamingRes.vue')['default']
     RegisterDesc: typeof import('./src/components/RegisterDesc.vue')['default']
     ResultModal: typeof import('./src/components/ResultModal.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

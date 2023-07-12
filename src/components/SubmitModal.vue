@@ -49,7 +49,6 @@ async function handleSmsCode() {
   getSmsCode(loginForm.phone)
 }
 
-const resultModalRef = ref()
 const loading = ref(false)
 async function handleSubmit() {
   loading.value = true
@@ -61,7 +60,6 @@ async function handleSubmit() {
     })
     if (data)
       emit('setRes', data)
-      // resultModalRef.value.open(data)
     show.value = false
     loading.value = false
   }
@@ -101,5 +99,4 @@ defineExpose({ open })
       </NSpace>
     </NForm>
   </NModal>
-  <ResultModal ref="resultModalRef" />
 </template>
