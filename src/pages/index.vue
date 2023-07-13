@@ -4,6 +4,12 @@ const res = ref<{ companyName: string; key: string }[]>([])
 function setRes(data) {
   res.value = data
 }
+
+const { push } = useRouter()
+const { isMobile } = useBasicLayout()
+
+if (isMobile.value)
+  push('m_naming')
 </script>
 
 <template>
@@ -26,7 +32,7 @@ function setRes(data) {
           </button>
           <button
             px-8 py-4 text="#222"
-            @click="$router.push('/check')"
+            @click="push('/check')"
           >
             公司核名
           </button>

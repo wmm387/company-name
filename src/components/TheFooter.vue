@@ -22,7 +22,7 @@ const itemList = [
         w-64 flex-ss
       >
         <img :src="item.icon" mr-4 w-10>
-        <div>
+        <div hidden md:block>
           <div text="lg #222">
             {{ item.text }}
           </div>
@@ -34,11 +34,11 @@ const itemList = [
     </div>
     <div bg="#151B26" text="#787B80 sm" flex-cc px-20 py-6>
       <div max-w-7xl w-full flex-bc>
-        <div flex-cc gap-4>
-          <div>©苏州大凯基科技有限公司 2023 版权所有</div>
+        <div flex-cc flex-col gap-4>
+          <div>©企什么（苏州）网络科技有限公司 2023 版权所有</div>
           <div>
             <a href="https://beian.miit.gov.cn/" target="_blank">
-              苏ICP备 200188113号-3
+              苏ICP备2023022188号
             </a>
           </div>
           <div>
@@ -50,10 +50,10 @@ const itemList = [
             </a>
           </div>
         </div>
-        <div flex-cc>
+        <!-- <div flex-cc>
           <img src="@/assets/icon-phone.png" mr-2 w-3>
           <div>咨询电话: 0512-66886688</div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

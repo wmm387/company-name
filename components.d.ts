@@ -10,7 +10,10 @@ declare module 'vue' {
     CheckForm: typeof import('./src/components/CheckForm.vue')['default']
     CitySelect: typeof import('./src/components/CitySelect.vue')['default']
     CompanyTypeSelect: typeof import('./src/components/CompanyTypeSelect.vue')['default']
+    copy: typeof import('./src/components/TheHeader copy.vue')['default']
     IndustryTypeSelect: typeof import('./src/components/IndustryTypeSelect.vue')['default']
+    MNamingDesc: typeof import('./src/components/m/MNamingDesc.vue')['default']
+    MNamingForm: typeof import('./src/components/m/MNamingForm.vue')['default']
     NaiveProvider: typeof import('./src/components/NaiveProvider.vue')['default']
     NamingDesc: typeof import('./src/components/NamingDesc.vue')['default']
     NamingForm: typeof import('./src/components/NamingForm.vue')['default']
@@ -23,5 +26,6 @@ declare module 'vue' {
     SubmitModal: typeof import('./src/components/SubmitModal.vue')['default']
     TheFooter: typeof import('./src/components/TheFooter.vue')['default']
     TheHeader: typeof import('./src/components/TheHeader.vue')['default']
+    'TheHeader copy': typeof import('./src/components/TheHeader copy.vue')['default']
   }
 }

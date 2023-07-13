@@ -59,8 +59,8 @@ function setRes(res) {
 
 <template>
   <div text="base black">
-    <div border="1 solid #F4F7FC" relative h-14 inline-flex bg-white>
-      <div w-72 flex-bc cursor-pointer px-8 py-auto @click="showCitySelect">
+    <div relative flex-col-cc space-y-8>
+      <div h-14 w-full flex-bc cursor-pointer bg-white px-8 py-4 @click="showCitySelect">
         <div flex-cc>
           <img src="@/assets/icon-local.png" mr-4 w-4>
           <span v-if="formData.cityName">{{ formData.cityName }}</span>
@@ -68,8 +68,7 @@ function setRes(res) {
         </div>
         <img :src="arrowDown" ml-4 w-3>
       </div>
-      <div bg="#D6D8DB" text="#D6D8DB" my-3 h-8 w-1px />
-      <div w-80 flex-bc cursor-pointer px-8 py-auto @click="showIndustryTypeSelect">
+      <div h-14 w-full flex-bc cursor-pointer bg-white px-8 py-4 @click="showIndustryTypeSelect">
         <div flex-cc>
           <img src="@/assets/icon-more.png" mr-4 w-4>
           <span v-if="formData.industryType">{{ formData.industryType }}</span>
@@ -77,22 +76,22 @@ function setRes(res) {
         </div>
         <img :src="arrowDown" ml-4 w-3>
       </div>
-      <div bg="#D6D8DB" text="#D6D8DB" my-3 h-8 w-1px />
-      <div w-96 flex-bc px-8 py-auto>
-        <div flex-cc>
+      <div h-14 w-full flex-bc cursor-pointer bg-white px-8 py-4>
+        <div w-full flex-cc>
           <img src="@/assets/icon-edit.png" mr-4 w-4>
           <input
             v-model="formData.companyName"
+            w-full
             outline="none active:none"
             placeholder="输入想要的关键字 (选填)"
           >
         </div>
       </div>
-      <button bg="#1054DD" w-54 py-4 text="#F4F7FC" @click="submit">
+      <button border="2px #fff" h-14 w-42 text="xl #F4F7FC" @click="submit">
         智能起名
       </button>
-      <CitySelect ref="citySelectRef" absolute top-14 @select="selectCity" />
-      <IndustryTypeSelect ref="industryTypeSelectRef" absolute top-14 @select="selectIndustryType" />
+      <CitySelect ref="citySelectRef" absolute top-9 @select="selectCity" />
+      <IndustryTypeSelect ref="industryTypeSelectRef" absolute top-29 @select="selectIndustryType" />
     </div>
   </div>
   <SubmitModal ref="modalRef" :data="formData" @set-res="setRes" />
