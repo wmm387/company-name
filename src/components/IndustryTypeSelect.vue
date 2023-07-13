@@ -48,16 +48,19 @@ defineExpose({ show })
     <div
       v-for="group in list"
       :key="group.title"
-      class="mb-3 flex-sc"
+      sm="flex-sc flex-row"
+      mb-3 flex-col-cs
     >
-      <div bg="#4d85fb" text="sm #fff center" h-8 w-20 lh-8>
+      <div bg="#4d85fb" text="sm #fff center" mb-1 h-6 w-15 lh-6 sm="h-8 w-20 lh-8 mb-0">
         {{ group.title }}
       </div>
-      <div flex="sc wrap">
+      <div flex="sc wrap" flex-1>
         <div
           v-for="item in group.items"
           :key="item"
-          ml-8 cursor-pointer
+          mr-4 mt-1
+          sm="!ml-8 mr-0 mt-0"
+          cursor-pointer
           text="sm #353535 hover:#a7cdfe"
           @click="select(item)"
         >

@@ -9,7 +9,7 @@ const { push } = useRouter()
 const { isMobile } = useBasicLayout()
 
 if (isMobile.value)
-  push('m_naming')
+  push('m/naming')
 </script>
 
 <template>

@@ -20,6 +20,12 @@ function next() {
   carouselRef.value.next()
 }
 
+const { push } = useRouter()
+const { isMobile } = useBasicLayout()
+
+if (isMobile.value)
+  push('m/naming')
+
 const res = ref<{ companyName: string; key: string }[]>([])
 
 function setRes(data) {

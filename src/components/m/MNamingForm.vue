@@ -90,7 +90,7 @@ function setRes(res) {
       <button border="2px #fff" h-14 w-42 text="xl #F4F7FC" @click="submit">
         智能起名
       </button>
-      <CitySelect ref="citySelectRef" absolute top-9 @select="selectCity" />
+      <CitySelect ref="citySelectRef" absolute top-8 @select="selectCity" />
       <IndustryTypeSelect ref="industryTypeSelectRef" absolute top-29 @select="selectIndustryType" />
     </div>
   </div>

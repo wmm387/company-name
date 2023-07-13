@@ -34,17 +34,17 @@ api.interceptors.request.use(
 // 添加响应拦截器
 api.interceptors.response.use(
   (response) => {
-    return response.data
-    if (response.data.code === 200) {
-      return response.data
-    }
-    else {
+    // return response.data
+    if ([201].includes(response.data.code)) {
       window.$dialog?.error({
         title: '错误',
         content: response.data?.msg || '服务器出错',
         positiveText: '好的',
       })
       throw new Error(response.data?.msg || 'Error')
+    }
+    else {
+      return response.data
     }
   },
   (error) => {

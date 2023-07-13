@@ -11,18 +11,19 @@ const descList = [
   { icon: icon_quick, text: '急速起名' },
 ]
 
-const carouselRef = ref()
-function prev() {
-  carouselRef.value.prev()
-}
-function next() {
-  carouselRef.value.next()
-}
+const textList = [
+  '基于企业工商大数据分析注册通过率',
+  '系统结合唐诗宋词公司起名更优雅',
+  '独家算法结合行业五行喜忌',
+  '遵循公司命名规则 保证名称能够注册',
+  '人工智能算法1秒出结果',
+]
 
 const res = ref<{ companyName: string; key: string }[]>([])
 
 function setRes(data) {
   res.value = data
+  window.scrollTo(0, 550)
 }
 </script>
 
@@ -39,7 +40,7 @@ function setRes(data) {
         <MNamingForm @set-res="setRes" />
       </div>
     </div>
-    <NamingRes v-if="res.length" mt-24 :res="res" />
+    <MNamingRes v-if="res.length" id="res" mt-16 :res="res" />
     <template v-else>
       <div mt-16 flex-col-cc px-5>
         <div text="3xl #222 center" mb-4 font-bold>
@@ -62,20 +63,18 @@ function setRes(data) {
         </div>
       </div>
       <div mt-16 w-full flex-col-cc>
-        <div class="bg2" text="3xl #222 center" mb-4 font-bold>
+        <div class="bg1" text="3xl white center" w-full py-12 font-bold>
           智能公司起名的亮点
         </div>
-        <div flex>
-          <!-- <div h-35 w-78 flex-col-cc text="2xl white">
-            <img src="@/assets/naming/quote.png" mb-4 w-12>
-            <p>智能公司</p>
-            <p>起名的亮点</p>
-          </div> -->
-          <div flex-col-cc>
-            <img src="@/assets/naming/banner1.png">
-            <img src="@/assets/naming/banner2.png">
-            <img src="@/assets/naming/banner3.png">
-            <img src="@/assets/naming/banner4.png">
+        <div class="bg2" w-full flex-col-cc px-5 py-12 space-y-5>
+          <div
+            v-for="text in textList"
+            :key="text"
+            class="bg3"
+            w-full py-8
+            text="base #222 center"
+          >
+            {{ text }}
           </div>
         </div>
       </div>
@@ -86,8 +85,20 @@ function setRes(data) {
 </template>
 
 <style scoped lang="scss">
-.bg2 {
+.bg1 {
   background: url('@/assets/m/name-desc-header-1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.bg2 {
+  background: url('@/assets/m/name-desc-header-2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.bg3 {
+  background: url('@/assets/m/name-desc-header-3.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

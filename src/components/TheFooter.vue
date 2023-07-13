@@ -14,27 +14,30 @@ const itemList = [
 
 <template>
   <div w-full>
-    <div bg="#F4F7FC" flex-cc>
+    <div bg="#F4F7FC" sm="flex-cc" flex-bc px-5 space-x-4>
       <div
         v-for="item in itemList"
         :key="item.text"
-        m="x12 y6"
-        w-64 flex-ss
+        my-3
+        sm="my-6 mx-12 flex-ss flex-row w-64"
+        flex-col-cc
       >
-        <img :src="item.icon" mr-4 w-10>
-        <div hidden md:block>
-          <div text="lg #222">
+        <div h-8 w-8 sm="h-10 w-10" flex-cc>
+          <img :src="item.icon" w-7 sm="w-10 mr-4">
+        </div>
+        <div>
+          <div text="base #222" sm:text-lg>
             {{ item.text }}
           </div>
-          <div text="sm #666">
+          <div hidden sm:block text="sm #666">
             {{ item.text2 }}
           </div>
         </div>
       </div>
     </div>
-    <div bg="#151B26" text="#787B80 sm" flex-cc px-20 py-6>
+    <div bg="#151B26" text="#787B80 sm" flex-cc px-5 py-6 sm:px-18>
       <div max-w-7xl w-full flex-bc>
-        <div flex-cc flex-col gap-4>
+        <div flex-col-cs gap-2 sm="flex-cc flex-row gap-4">
           <div>©企什么（苏州）网络科技有限公司 2023 版权所有</div>
           <div>
             <a href="https://beian.miit.gov.cn/" target="_blank">
