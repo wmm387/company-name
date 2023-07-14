@@ -9,11 +9,18 @@ import icon_pass from '@/assets/check/icon-pass.png'
 import icon_service from '@/assets/check/icon-service.png'
 import icon_upgrade from '@/assets/check/icon-upgrade.png'
 
+useTitle('公司核名 - 企什么')
+
+const { push } = useRouter()
+const { isMobile } = useBasicLayout()
+if (isMobile.value)
+  push('/m/check')
+
 const descList = [
   { icon: icon_data, text: '大数据', text1: 'AI智能分析' },
   { icon: icon_building, text: '6000万+企业', text1: '数据实时更新' },
   { icon: icon_pass, text: '通过率', text1: '高达98%' },
-  { icon: icon_service, text: '已成功服务', text1: '已成功服务' },
+  { icon: icon_service, text: '已成功服务', text1: '全国50万+企业' },
 ]
 
 const textList = [
@@ -31,51 +38,7 @@ interface Item {
   regStatus: string
 }
 
-const res = ref<Item[]>([
-  {
-    companyName: '苏州普物科技有限公司',
-    regData: '2018-08-22',
-    legalPersonName: '李涛',
-    regStatus: '存续',
-    regCapital: '200万人民币',
-  },
-  {
-    companyName: '昆明普物机电有限公司',
-    regData: '2023-05-21',
-    legalPersonName: '孙晓雷',
-    regStatus: '存续',
-    regCapital: '100万人民币',
-  },
-  {
-    companyName: '普物科技（重庆）有限公司',
-    regData: '2020-06-02',
-    legalPersonName: '张福建',
-    regStatus: '存续',
-    regCapital: '228万人民币',
-  },
-  {
-    companyName: '西安普物教学设备有限公司',
-    regData: '2016-12-06',
-    legalPersonName: '刁胜利',
-    regStatus: '存续',
-    regCapital: '300万人民币',
-  },
-  {
-    companyName: '普物儀器有限公司',
-    regData: '1996-03-15',
-    legalPersonName: '黄忠俊',
-    regStatus: '核准设立',
-    regCapital: '500万新台币',
-  },
-  {
-    companyName: '重庆盛普物资有限公司',
-    regData: '1993-07-15',
-    legalPersonName: '杨泉',
-    regStatus: '存续',
-    regCapital: '2140.5万',
-  },
-])
-
+const res = ref<Item[]>([])
 function setRes(data) {
   res.value = data
 }
@@ -100,7 +63,7 @@ function setRes(data) {
     </div>
     <div v-if="res.length" m-auto mt-24 max-w-7xl>
       <div text="3xl #222" mb-4 font-bold>
-        智能起名系统已为您查询到以下结果
+        智能核名系统已为您查询到以下结果
       </div>
       <div mb-12 text="base #666">
         本站数据仅供参考，最终以工商局审核结果为准
@@ -180,6 +143,3 @@ function setRes(data) {
     <TheFooter mt-24 />
   </div>
 </template>
-
-<style scoped lang="scss">
-</style>

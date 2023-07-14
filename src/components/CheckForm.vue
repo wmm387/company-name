@@ -56,7 +56,8 @@ function showPhoneModal() {
 function submit() {
   if (!formData.value.cityName)
     return handleConfirm('请选择城市')
-
+  if (!formData.value.companyName)
+    return handleConfirm('请输入您要查询的公司名称')
   if (!formData.value.industryType)
     return handleConfirm('请选择行业类型')
 

@@ -9,11 +9,18 @@ import icon_pass from '@/assets/check/icon-pass.png'
 import icon_service from '@/assets/check/icon-service.png'
 import icon_upgrade from '@/assets/check/icon-upgrade.png'
 
+useTitle('公司核名 - 企什么')
+
+const { push } = useRouter()
+const { isMobile } = useBasicLayout()
+if (!isMobile.value)
+  push('/check')
+
 const descList = [
   { icon: icon_data, text: '大数据', text1: 'AI智能分析' },
   { icon: icon_building, text: '6000万+企业', text1: '数据实时更新' },
   { icon: icon_pass, text: '通过率', text1: '高达98%' },
-  { icon: icon_service, text: '已成功服务', text1: '已成功服务' },
+  { icon: icon_service, text: '已成功服务', text1: '全国50万+企业' },
 ]
 
 const textList = [
@@ -31,155 +38,115 @@ interface Item {
   regStatus: string
 }
 
-const res = ref<Item[]>([
-  {
-    companyName: '苏州普物科技有限公司',
-    regData: '2018-08-22',
-    legalPersonName: '李涛',
-    regStatus: '存续',
-    regCapital: '200万人民币',
-  },
-  {
-    companyName: '昆明普物机电有限公司',
-    regData: '2023-05-21',
-    legalPersonName: '孙晓雷',
-    regStatus: '存续',
-    regCapital: '100万人民币',
-  },
-  {
-    companyName: '普物科技（重庆）有限公司',
-    regData: '2020-06-02',
-    legalPersonName: '张福建',
-    regStatus: '存续',
-    regCapital: '228万人民币',
-  },
-  {
-    companyName: '西安普物教学设备有限公司',
-    regData: '2016-12-06',
-    legalPersonName: '刁胜利',
-    regStatus: '存续',
-    regCapital: '300万人民币',
-  },
-  {
-    companyName: '普物儀器有限公司',
-    regData: '1996-03-15',
-    legalPersonName: '黄忠俊',
-    regStatus: '核准设立',
-    regCapital: '500万新台币',
-  },
-  {
-    companyName: '重庆盛普物资有限公司',
-    regData: '1993-07-15',
-    legalPersonName: '杨泉',
-    regStatus: '存续',
-    regCapital: '2140.5万',
-  },
-])
-
+const res = ref<Item[]>([])
 function setRes(data) {
   res.value = data
+  window.scrollTo(0, 550)
 }
 </script>
 
 <template>
-  <div>
-    <div class="header" py-48>
-      <div text="#F4F7FC" m-auto max-w-7xl flex-cc>
-        <div>
-          <div mb-6 text="4xl" font-bold>
-            工商核名预查询系统
-          </div>
-          <div mb-6 text-2xl>
-            快速查询公司名字能否注册
-          </div>
-          <div flex-col-cs text-black>
-            <CheckForm @set-res="setRes" />
-          </div>
+  <div m-auto container>
+    <div class="header" px-5 py-16>
+      <div text="#F4F7FC">
+        <div mb-6 text="3xl" font-bold>
+          工商核名预查询系统
         </div>
+        <div mb-6 text-base>
+          快速查询公司名字能否注册
+        </div>
+        <MCheckForm @set-res="setRes" />
       </div>
     </div>
-    <div v-if="res.length" m-auto mt-24 max-w-7xl>
-      <div text="3xl #222" mb-4 font-bold>
-        智能起名系统已为您查询到以下结果
+    <div v-if="res.length" mt-12 px-5>
+      <div text="3xl #222 center" mb-4 font-bold>
+        智能核名系统已为您查询到以下结果
       </div>
-      <div mb-12 text="base #666">
+      <div text="base #666 center">
         本站数据仅供参考，最终以工商局审核结果为准
       </div>
-      <div space-y-4>
+      <div mt-8 space-y-4>
         <div
           v-for="(item) in res"
           :key="item.companyName"
-          flex flex-col p="x7 y3"
-          border="~ 1 #ddd"
+          p-4 border="~ 1 #ddd"
         >
-          <div>
-            <div flex-sc>
-              <p text="lg #222" mr-4>
-                {{ item.companyName }}
+          <div flex-sc>
+            <p text="lg #222" mr-4>
+              {{ item.companyName }}
+            </p>
+            <NTag type="success" size="small">
+              {{ item.regStatus }}
+            </NTag>
+          </div>
+          <div mt-2 flex-bc text-sm>
+            <div flex-col-cs>
+              <p text-gray>
+                法定代表人
               </p>
-              <NTag type="success" size="small">
-                {{ item.regStatus }}
-              </NTag>
+              <p>{{ item.legalPersonName }}</p>
             </div>
-            <div mt-4 flex space-x-8>
-              <div><span text-gray>法定代表人: </span><span>{{ item.legalPersonName }}</span></div>
-              <div><span text-gray>注册资本: </span><span>{{ item.regCapital }}</span></div>
-              <div><span text-gray>成立日期: </span><span>{{ item.regData }}</span></div>
+            <div flex-col-cs>
+              <p text-gray>
+                注册资本
+              </p>
+              <p>{{ item.regCapital }}</p>
+            </div>
+            <div flex-col-cs>
+              <p text-gray>
+                成立日期
+              </p>
+              <p>{{ item.regData }}</p>
             </div>
           </div>
         </div>
       </div>
     </div>
     <template v-else>
-      <div mt="-12" flex-cc>
+      <div grid="~ cols-4">
         <div
           v-for="item in descList"
           :key="item.text"
-          m-3 h-28 w-74 flex-cc bg-white px-7 shadow-lg
+          h-24 flex-col-cc
         >
-          <img :src="item.icon" mr-8 w-8>
-          <div>
-            <div text="lg #222">
-              {{ item.text }}
-            </div>
-            <div text="sm #222">
-              {{ item.text1 }}
-            </div>
+          <img :src="item.icon" mb-2 w-5>
+          <div text="xs #222">
+            {{ item.text }}
+          </div>
+          <div text="xs #222">
+            {{ item.text1 }}
           </div>
         </div>
       </div>
-      <div mt-24 flex-col-cc>
-        <div text="3xl #222" mb-4 font-bold>
+      <div flex-col-cc px-5 py-12 bg="#f2f4fb">
+        <div text="3xl #222 center" mb-4 font-bold>
           公司核名的作用
         </div>
-        <div text="base #666">
+        <div text="base #666 center">
           采用企业大数据分析，从6000万+企业信息和驰名/著名商标中分析出公司名称的通过率
         </div>
-        <div mt-12 flex>
+        <div grid="~ cols-2" mt-8 w-full gap-5>
           <div
             v-for="(item, index) in textList"
             :key="item.text"
-            :style="{ backgroundColor: index % 2 ? '#ebebeb' : '#f5f5f5' }"
-            h-42 w-80 flex-col-cs px-12
+            :style="{ backgroundColor: [1, 2].includes(index) ? '#ebedf5' : '#fff' }"
+            flex="~ items-start" p-4
           >
-            <div mb-5 flex-cc text="#222">
-              <img :src="item.icon" mr-2 w-6>
-              <div text-lg>
+            <img :src="item.icon" mr-2 mt-1 w-5>
+            <div>
+              <div text="base #222" mb-1>
                 {{ item.text }}
               </div>
-            </div>
-            <div text-base>
-              {{ item.text1 }}
+              <div text="sm #666">
+                {{ item.text1 }}
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <RegisterDesc mt-24 />
-      <NamingDesc mt-24 />
+      <MRegisterDesc mt-12 />
+      <MNamingDesc mt-12 />
     </template>
-    <TheFooter mt-24 />
+    <TheFooter mt-12 />
   </div>
 </template>
-
-<style scoped lang="scss">
-</style>

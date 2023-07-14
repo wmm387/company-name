@@ -6,6 +6,13 @@ import icon_stamp from '@/assets/scope/icon-stamp.png'
 import icon_map from '@/assets/scope/icon-map.png'
 import icon_category from '@/assets/scope/icon-category.png'
 
+useTitle('经营范围 - 企什么')
+
+const { push } = useRouter()
+const { isMobile } = useBasicLayout()
+if (!isMobile.value)
+  push('/scope')
+
 const descList = [
   { icon: icon_inconsistency, text: '行业差异性', text2: '不同的行业类型，对应不同的经营范围， 原则上不能随意写 ' },
   { icon: icon_region, text: '地区差异性', text2: '同一个行业，不同地区也有地方差异性， 写法不一样' },
@@ -25,78 +32,60 @@ const res = ref([])
 
 function setRes(data) {
   res.value = data
+  window.scrollTo(0, 500)
 }
 </script>
 
 <template>
-  <div>
-    <div class="header" py-48>
-      <div text="#F4F7FC" m-auto max-w-7xl flex-cc>
-        <div>
-          <div mb-6 text="4xl" font-bold>
-            经营范围智能生成器
-          </div>
-          <div mb-6 text-2xl>
-            经营范围不知道怎么填？一键智能生成
-          </div>
-          <div flex-col-cs text-black>
-            <ScopeForm @set-res="setRes" />
-          </div>
+  <div m-auto container>
+    <div class="header" px-5 py-20>
+      <div text="#F4F7FC">
+        <div mb-4 text="3xl" font-bold>
+          经营范围智能生成器
         </div>
+        <div mb-6 text-base>
+          经营范围不知道怎么填？一键智能生成
+        </div>
+        <MScopeForm @set-res="setRes" />
       </div>
     </div>
-    <div v-if="res.length" bg="#f2f4fb" py-24>
-      <div m-auto max-w-7xl>
-        <div text="3xl #222" mb-4 font-bold>
-          经营范围系统为您查询到以下结果
-        </div>
-        <div mb-12 text="base #666">
-          本站数据仅供参考，最终以工商局审核结果为准
-        </div>
-        <div grid="~ cols-2" gap-4>
-          <div
-            v-for="(item, index) in res"
-            :key="item"
-            bg="white"
-            flex flex-col p-4
-            border="~ 1 #EDF0F5"
-          >
-            <div mb-4 flex-bc>
-              <p text="xl #1054DD">
-                推荐{{ index + 1 }}
-              </p>
-              <button
-                text="base #fff"
-                p="x4 y1"
-                bg="#1054DD"
-                rounded
-                @click="copy(item)"
-              >
-                复制内容
-              </button>
-            </div>
-            <div bg="#f2f4fb" flex="~ 1" p-4>
-              <p text="sm #222" mr-4 lh-6>
-                经营范围:
-              </p>
-              <p flex-1 text="sm #666" lh-6>
-                {{ item }}
-              </p>
-            </div>
+    <div v-if="res.length" bg="#f2f4fb" px-5 py-12>
+      <div text="3xl #222 center" mb-4 font-bold>
+        经营范围系统为您查询到以下结果
+      </div>
+      <div mb-6 text="base #666">
+        本站数据仅供参考，最终以工商局审核结果为准
+      </div>
+      <div flex-col-cc space-y-5>
+        <div v-for="(item, index) in res" :key="item" bg="white" flex flex-col p-4 border="~ 1 #EDF0F5">
+          <div mb-4 flex-bc>
+            <p text="lg #1054DD">
+              推荐{{ index + 1 }}
+            </p>
+            <button text="sm #fff" p="x3 y1" bg="#1054DD" rounded @click="copy(item)">
+              复制内容
+            </button>
+          </div>
+          <div bg="#f2f4fb" flex="~ col" p-4>
+            <p text="sm #000" mb-1>
+              经营范围:
+            </p>
+            <p text="sm #666">
+              {{ item }}
+            </p>
           </div>
         </div>
       </div>
     </div>
     <template v-else>
-      <div flex-col-cc py-24 bg="#f2f4fb">
+      <div bg="#f2f4fb" flex-col-cc px-5 py-16>
         <div text="3xl #222 center" mb-4 font-bold>
           什么是工商核名
         </div>
-        <div mt-12 flex>
+        <div mt-6 flex-col-cc space-y-5>
           <div
             v-for="(item, index) in descList" :key="item.text"
-            :style="{ backgroundColor: index % 2 ? '#ebedf5' : '#fff' }"
-            h-50 w-100 flex-col-cs px-18
+            :style="{ backgroundColor: index % 2 ? '#ebedf5' : '#fff' }" w-full flex-col-cs px-10 py-6
           >
             <div flex-sc>
               <img :src="item.icon" mr-4 h-6>
@@ -104,28 +93,30 @@ function setRes(data) {
                 {{ item.text }}
               </div>
             </div>
-            <div text="sm #222" mt-6>
+            <div text="sm #222" mt-4>
               {{ item.text2 }}
             </div>
           </div>
         </div>
       </div>
-      <div my-24 flex-col-cc>
-        <div text="3xl #222 center" mb-4 font-bold>
+      <div my-16 flex-col-cc px-5>
+        <div text="3xl #222 center" font-bold>
           经营范围生成器为什么好用
         </div>
-        <div mt-12 flex>
+        <div mt-8 flex-col-cc space-y-5>
           <div
             v-for="(item, index) in descList2" :key="item.text"
             :style="{ backgroundColor: index % 2 ? '#F4F7FC' : '#1054DD', color: index % 2 ? '#222' : '#fff' }"
-            h-60 w-80 flex-col-cs px-12
+            w-full flex-cs px-12 py-8
           >
-            <img :src="item.icon" mb-7 h-6>
-            <div text="xl">
-              {{ item.text }}
-            </div>
-            <div text="sm" mt-6>
-              {{ item.text2 }}
+            <img :src="item.icon" mr-4 mt-1 h-6>
+            <div>
+              <div text="lg">
+                {{ item.text }}
+              </div>
+              <div text="sm" mt-2>
+                {{ item.text2 }}
+              </div>
             </div>
           </div>
         </div>

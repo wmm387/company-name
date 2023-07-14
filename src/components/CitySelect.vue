@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { onClickOutside } from '@vueuse/core'
 import api from '@/api'
 
 const emit = defineEmits(['select'])
@@ -66,7 +65,12 @@ defineExpose({ show })
 </script>
 
 <template>
-  <div v-if="visible" ref="targetRef" w-full flex flex-wrap bg-white py-5 pl-3 shadow-lg>
+  <div
+    v-if="visible"
+    ref="targetRef"
+    z-99 w-full flex flex-wrap
+    bg-white py-5 pl-3 shadow-lg
+  >
     <template v-if="cityList.length">
       <div
         v-for="item in cityList"

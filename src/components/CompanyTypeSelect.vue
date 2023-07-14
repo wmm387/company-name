@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { onClickOutside } from '@vueuse/core'
-
 const emit = defineEmits(['select'])
 
 const visible = ref(false)

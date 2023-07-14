@@ -11,6 +11,7 @@ import {
 export default defineConfig({
   shortcuts: [
     ['flex-cc', 'flex justify-center items-center'],
+    ['flex-cs', 'flex justify-center items-start'],
     ['flex-sc', 'flex justify-start items-center'],
     ['flex-ss', 'flex justify-start items-start'],
     ['flex-bc', 'flex justify-between items-center'],

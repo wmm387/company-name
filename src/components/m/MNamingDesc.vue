@@ -12,7 +12,7 @@ const descList = [
 </script>
 
 <template>
-  <div flex-col-cc>
+  <div flex-col-cc px-5>
     <div text="3xl #222" font-bold>
       公司起名 注意以下事项
     </div>

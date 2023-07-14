@@ -5,6 +5,13 @@ import icon_excellent from '@/assets/naming/icon-excellent.png'
 import icon_pass from '@/assets/naming/icon-pass.png'
 import icon_quick from '@/assets/naming/icon-quick.png'
 
+useTitle('公司起名 - 企什么')
+
+const { push } = useRouter()
+const { isMobile } = useBasicLayout()
+if (isMobile.value)
+  push('/m/naming')
+
 const descList = [
   { icon: icon_easy, text: '易读好记' },
   { icon: icon_pass, text: '注册通过率高' },
@@ -19,12 +26,6 @@ function prev() {
 function next() {
   carouselRef.value.next()
 }
-
-const { push } = useRouter()
-const { isMobile } = useBasicLayout()
-
-if (isMobile.value)
-  push('m/naming')
 
 const res = ref<{ companyName: string; key: string }[]>([])
 

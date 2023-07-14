@@ -1,4 +1,6 @@
 <script setup lang="ts">
+useTitle('企什么')
+
 const res = ref<{ companyName: string; key: string }[]>([])
 
 function setRes(data) {
@@ -9,7 +11,7 @@ const { push } = useRouter()
 const { isMobile } = useBasicLayout()
 
 if (isMobile.value)
-  push('m/naming')
+  push('/m/naming')
 </script>
 
 <template>

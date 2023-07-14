@@ -6,6 +6,13 @@ import icon_stamp from '@/assets/scope/icon-stamp.png'
 import icon_map from '@/assets/scope/icon-map.png'
 import icon_category from '@/assets/scope/icon-category.png'
 
+useTitle('经营范围 - 企什么')
+
+const { push } = useRouter()
+const { isMobile } = useBasicLayout()
+if (isMobile.value)
+  push('/m/scope')
+
 const descList = [
   { icon: icon_inconsistency, text: '行业差异性', text2: '不同的行业类型，对应不同的经营范围， 原则上不能随意写 ' },
   { icon: icon_region, text: '地区差异性', text2: '同一个行业，不同地区也有地方差异性， 写法不一样' },

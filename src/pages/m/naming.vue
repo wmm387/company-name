@@ -4,6 +4,13 @@ import icon_excellent from '@/assets/naming/icon-excellent.png'
 import icon_pass from '@/assets/naming/icon-pass.png'
 import icon_quick from '@/assets/naming/icon-quick.png'
 
+useTitle('公司起名 - 企什么')
+
+const { push } = useRouter()
+const { isMobile } = useBasicLayout()
+if (!isMobile.value)
+  push('/naming')
+
 const descList = [
   { icon: icon_easy, text: '易读好记' },
   { icon: icon_pass, text: '注册通过率高' },
@@ -51,7 +58,8 @@ function setRes(data) {
         </div>
         <div grid="~ cols-2" mt-8 w-full gap-5>
           <div
-            v-for="(item, index) in descList" :key="item.text"
+            v-for="(item, index) in descList"
+            :key="item.text"
             :style="{ backgroundColor: [1, 2].includes(index) ? '#ebebeb' : '#f5f5f5' }"
             flex-col-cc p-5
           >
@@ -78,7 +86,7 @@ function setRes(data) {
           </div>
         </div>
       </div>
-      <MNamingDesc mt-16 px-5 />
+      <MNamingDesc mt-16 />
     </template>
     <TheFooter mt-16 />
   </div>

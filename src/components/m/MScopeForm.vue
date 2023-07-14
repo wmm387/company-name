@@ -5,10 +5,9 @@ import arrowDown from '@/assets/icon-arrow-down.png'
 const emit = defineEmits(['setRes'])
 
 const formData = ref({
-  actionType: 0, // 起名
+  actionType: 2, // 经营范围
   cityName: '苏州市',
   industryType: '网络科技',
-  companyName: '',
 })
 
 const citySelectRef = ref()
@@ -87,21 +86,9 @@ function setRes(res) {
         </div>
         <IndustryTypeSelect ref="industryTypeSelectRef" absolute left-0 top-15 @select="selectIndustryType" />
       </div>
-      <!-- 公司名称 -->
-      <div h-14 w-full flex-bc cursor-pointer bg-white px-8 py-4>
-        <div w-full flex-cc>
-          <img src="@/assets/icon-edit.png" mr-4 w-4>
-          <input
-            v-model="formData.companyName"
-            w-full
-            outline="none active:none"
-            placeholder="输入想要的关键字 (选填)"
-          >
-        </div>
-      </div>
       <!-- 按钮 -->
       <button border="2px #fff" h-14 w-42 text="xl #F4F7FC" @click="submit">
-        智能起名
+        立即生成
       </button>
     </div>
   </div>

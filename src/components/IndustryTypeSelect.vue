@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { onClickOutside } from '@vueuse/core'
-
 const emit = defineEmits(['select'])
 
 const visible = ref(false)
@@ -44,7 +42,7 @@ defineExpose({ show })
 </script>
 
 <template>
-  <div v-if="visible" ref="targetRef" w-full flex-col-cs flex-wrap bg-white p-6 shadow-lg>
+  <div v-if="visible" ref="targetRef" z-10 w-full flex-col-cs flex-wrap bg-white p-6 shadow-lg>
     <div
       v-for="group in list"
       :key="group.title"
@@ -58,10 +56,10 @@ defineExpose({ show })
         <div
           v-for="item in group.items"
           :key="item"
-          mr-4 mt-1
+          mr-4 mt-2
           sm="!ml-8 mr-0 mt-0"
           cursor-pointer
-          text="sm #353535 hover:#a7cdfe"
+          text="base #353535 hover:#a7cdfe"
           @click="select(item)"
         >
           {{ item }}
