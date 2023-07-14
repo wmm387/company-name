@@ -36,22 +36,22 @@ const itemList = [
       </div>
     </div>
     <div bg="#151B26" text="#787B80 sm" flex-cc px-5 py-6 sm:px-18>
-      <div max-w-7xl w-full flex-bc>
-        <div flex-col-cs gap-2 sm="flex-cc flex-row gap-4">
+      <div max-w-7xl w-full flex-cc>
+        <div flex-col-cc gap-2 sm="flex-cc flex-row gap-4">
           <div>©企什么（苏州）网络科技有限公司 2023 版权所有</div>
           <div>
             <a href="https://beian.miit.gov.cn/" target="_blank">
               苏ICP备2023022188号
             </a>
           </div>
-          <div>
+          <!-- <div>
             <a
               href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=1101080232137"
               target="_blank"
             >
               苏公网安备 1101080232137号
             </a>
-          </div>
+          </div> -->
         </div>
         <!-- <div flex-cc>
           <img src="@/assets/icon-phone.png" mr-2 w-3>

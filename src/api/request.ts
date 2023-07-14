@@ -7,8 +7,10 @@ interface ApiResponse<T = any> {
   success: boolean
 }
 
+const { VITE_API_URL } = import.meta.env
+
 const api = axios.create({
-  baseURL: 'http://wxvote.bsjms.cn/qsm/',
+  baseURL: VITE_API_URL,
   timeout: 30000,
   headers: {},
 })
@@ -35,7 +37,8 @@ api.interceptors.request.use(
 api.interceptors.response.use(
   (response) => {
     // return response.data
-    if ([201].includes(response.data.code)) {
+    // if ([201].includes(response.data.code)) {
+    if (response.data.code !== 200) {
       window.$dialog?.error({
         title: '错误',
         content: response.data?.msg || '服务器出错',
