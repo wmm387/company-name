@@ -85,6 +85,7 @@ function setRes(res) {
           <img src="@/assets/icon-edit.png" mr-4 w-4>
           <input
             v-model="formData.companyName"
+            w-full
             outline="none active:none"
             placeholder="请输入您要查询的公司名称"
           >

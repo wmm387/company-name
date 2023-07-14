@@ -8,7 +8,7 @@ const formData = ref({
   actionType: 0, // 起名
   cityName: '苏州市',
   industryType: '网络科技',
-  companyName: '',
+  keywords: '',
 })
 
 const citySelectRef = ref()
@@ -82,9 +82,10 @@ function setRes(res) {
         <div flex-cc>
           <img src="@/assets/icon-edit.png" mr-4 w-4>
           <input
-            v-model="formData.companyName"
+            v-model="formData.keywords"
+            maxlength="1"
             outline="none active:none"
-            placeholder="输入想要的关键字 (选填)"
+            placeholder="输入想要的关键字(选填)"
           >
         </div>
       </div>
