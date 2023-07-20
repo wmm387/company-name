@@ -37,18 +37,16 @@ function setRes(data) {
 
 <template>
   <div>
-    <div class="header" py-48>
-      <div text="#F4F7FC" m-auto max-w-7xl flex-cc>
-        <div>
-          <div mb-6 text="4xl" font-bold>
-            经营范围智能生成器
-          </div>
-          <div mb-6 text-2xl>
-            经营范围不知道怎么填？一键智能生成
-          </div>
-          <div flex-col-cs text-black>
-            <ScopeForm @set-res="setRes" />
-          </div>
+    <div class="header" py-40>
+      <div text="#F4F7FC" m-auto max-w-7xl flex-col-cc>
+        <div mb-6 text="6xl" font-bold>
+          经营范围智能生成器
+        </div>
+        <div mb-6 text-2xl>
+          经营范围不知道怎么填？一键智能生成
+        </div>
+        <div flex-col-cs text-black>
+          <ScopeForm @set-res="setRes" />
         </div>
       </div>
     </div>

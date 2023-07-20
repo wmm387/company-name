@@ -26,9 +26,9 @@ function handleSelect(key: string) {
 </script>
 
 <template>
-  <div fixed z-999 h-12 w-full flex justify-center bg-white px-5 text-base shadow-lg sm:px-8>
+  <div fixed z-999 h-16 w-full flex justify-center bg-white px-5 text-base shadow-lg sm:px-8>
     <nav max-w-7xl w-full flex-bc inline-flex>
-      <img :src="isMobile ? logo_m : logo" h-6>
+      <img :src="isMobile ? logo_m : logo" h-8>
       <NDropdown
         v-if="isMobile"
         trigger="click"
@@ -38,7 +38,7 @@ function handleSelect(key: string) {
       >
         <img src="@/assets/m/icon-nav.png" h-4 cursor-pointer>
       </NDropdown>
-      <div v-else flex-cc text="#222 base" space-x-8>
+      <div v-else flex-cc text="#222 lg" space-x-8>
         <RouterLink to="/" box-border h-6>
           首页
         </RouterLink>

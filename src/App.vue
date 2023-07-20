@@ -6,7 +6,7 @@ import { NConfigProvider } from 'naive-ui'
   <NConfigProvider>
     <NaiveProvider>
       <TheHeader />
-      <RouterView pt-12 />
+      <RouterView pt-16 />
     </NaiveProvider>
   </NConfigProvider>
 </template>

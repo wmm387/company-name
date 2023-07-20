@@ -36,18 +36,16 @@ function setRes(data) {
 
 <template>
   <div>
-    <div class="header" py-48>
-      <div text="#F4F7FC" m-auto max-w-7xl flex-cc>
-        <div>
-          <div mb-6 text="4xl" font-bold>
-            人工智能公司起名系统
-          </div>
-          <div mb-6 text-2xl>
-            已为创业者提供38620+次服务
-          </div>
-          <div flex-col-cs text-black>
-            <NamingForm @set-res="setRes" />
-          </div>
+    <div class="header" py-40>
+      <div text="#F4F7FC" m-auto max-w-7xl flex-col-cc>
+        <div mb-6 text="6xl" font-bold>
+          人工智能公司起名系统
+        </div>
+        <div mb-6 text-2xl>
+          已为创业者提供38620+次服务
+        </div>
+        <div flex-col-cs text-black>
+          <NamingForm @set-res="setRes" />
         </div>
       </div>
     </div>
