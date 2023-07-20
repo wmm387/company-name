@@ -16,17 +16,33 @@ if (isMobile.value)
 
 <template>
   <div min-w-7xl>
-    <div class="header" py-58>
-      <div text="#F4F7FC" m-auto max-w-7xl>
-        <div mb-6 text="4xl" font-bold>
-          企业注册、公司起名、记账报税
-        </div>
-        <div text-2xl>
-          为创业者提供等一站式服务
+    <div class="header" py-48>
+      <div text="#F4F7FC" m-auto max-w-7xl flex-cc>
+        <div>
+          <div mb-6 text="4xl" font-bold>
+            企业注册、公司起名、记账报税
+          </div>
+          <div mb-6 text-2xl>
+            为创业者提供等一站式服务
+          </div>
+          <div flex-col-cs text-black>
+            <!-- <NamingForm @set-res="setRes" /> -->
+            <div flex-col-cs>
+              <div font-bold>
+                <button px-8 py-4 text="#1054dd" bg="#f4f7fc" border="1 solid #F4F7FC">
+                  智能起名
+                </button>
+                <button px-8 py-4 text-white border="1 solid #F4F7FC" @click="push('/check')">
+                  公司核名
+                </button>
+              </div>
+              <NamingForm @set-res="setRes" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="form" flex justify-center py-12 text-base>
+    <!-- <div class="form" flex justify-center py-12 text-base>
       <div flex-col-cs>
         <div>
           <button px-8 py-4 text="#F4F7FC" bg="#1054DD">
@@ -41,7 +57,7 @@ if (isMobile.value)
         </div>
         <NamingForm @set-res="setRes" />
       </div>
-    </div>
+    </div> -->
     <NamingRes v-if="res.length" mt-24 :res="res" />
     <RegisterDesc v-else mt-24 />
     <TheFooter mt-24 />
