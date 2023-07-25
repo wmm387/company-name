@@ -32,6 +32,7 @@ const res = ref([])
 
 function setRes(data) {
   res.value = data
+  window.scrollTo(0, 550)
 }
 </script>
 

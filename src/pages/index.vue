@@ -5,6 +5,7 @@ const res = ref<{ companyName: string; key: string }[]>([])
 
 function setRes(data) {
   res.value = data
+  window.scrollTo(0, 550)
 }
 
 const { push } = useRouter()

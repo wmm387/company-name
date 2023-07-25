@@ -73,9 +73,9 @@ defineExpose({ open })
 
 <template>
   <NModal v-model:show="show" :auto-focus="false" preset="card" title="快捷实名认证" style="width: 95%; max-width: 500px" class="p-4">
-    <div text="#ff9e47" mb-4>
+    <!-- <div text="#ff9e47" mb-4>
       根据《网络安全法》相关规定，使用互联网服务需要实名认证！
-    </div>
+    </div> -->
     <NForm ref="formRef" :model="loginForm" :rules="loginRules" :show-label="false" size="large">
       <NFormItem path="userName">
         <NInput v-model:value="loginForm.userName" placeholder="请输入姓名" />
