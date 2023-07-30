@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { NDropdown } from 'naive-ui'
-import logo from '@/assets/logo.png'
-import logo_m from '@/assets/m/logo.png'
 
 const { push } = useRouter()
 const { isMobile } = useBasicLayout()
@@ -28,7 +26,14 @@ function handleSelect(key: string) {
 <template>
   <div fixed z-999 h-16 w-full flex justify-center bg-white px-5 text-base shadow-lg sm:px-8>
     <nav max-w-7xl w-full flex-bc inline-flex>
-      <img :src="isMobile ? logo_m : logo" h-8>
+      <div flex-cc>
+        <img src="@/assets/icon.png" h-8>
+        <span text="2xl #040404" ml-2 font-bold>企什么</span>
+        <div v-if="!isMobile" bg="#e00707" text="xs white" ml--1 scale-80 px-2 py-0.5>
+          <div>全国企业核名查询系统</div>
+          <div>人工智能企业起名工具</div>
+        </div>
+      </div>
       <NDropdown
         v-if="isMobile"
         trigger="click"
