@@ -110,6 +110,7 @@ function setRes(data) {
           </div>
         </div>
       </div>
+      <SwiperText />
       <div mt-24 flex-col-cc>
         <div text="3xl #222" mb-4 font-bold>
           公司核名的作用

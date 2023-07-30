@@ -52,6 +52,7 @@ function setRes(data) {
     </div>
     <NamingRes v-if="res.length" mt-24 :res="res" />
     <template v-else>
+      <SwiperText />
       <div mt-24 flex-col-cc>
         <div text="3xl #222 center" mb-4 font-bold>
           基于企业大数据的公司起名

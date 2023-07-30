@@ -57,7 +57,10 @@ if (isMobile.value)
       </div>
     </div> -->
     <NamingRes v-if="res.length" mt-24 :res="res" />
-    <RegisterDesc v-else mt-24 />
+    <template v-else>
+      <SwiperText />
+      <RegisterDesc mt-24 />
+    </template>
     <TheFooter mt-24 />
   </div>
 </template>

@@ -27,6 +27,7 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     ScopeForm: typeof import('./src/components/ScopeForm.vue')['default']
     SubmitModal: typeof import('./src/components/SubmitModal.vue')['default']
+    SwiperText: typeof import('./src/components/SwiperText.vue')['default']
     TheFooter: typeof import('./src/components/TheFooter.vue')['default']
     TheHeader: typeof import('./src/components/TheHeader.vue')['default']
   }

@@ -19,7 +19,8 @@
     "devtools-detector": "^2.0.14",
     "naive-ui": "^2.34.4",
     "vue": "^3.3.4",
-    "vue-router": "^4.2.2"
+    "vue-router": "^4.2.2",
+    "vue3-marquee": "^4.0.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.5",

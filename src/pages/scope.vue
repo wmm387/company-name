@@ -94,6 +94,7 @@ function setRes(data) {
       </div>
     </div>
     <template v-else>
+      <SwiperText />
       <div flex-col-cc py-24 bg="#f2f4fb">
         <div text="3xl #222 center" mb-4 font-bold>
           什么是工商核名
