@@ -56,6 +56,9 @@ function handleSelect(key: string) {
         <RouterLink to="/scope" box-border h-6>
           经营范围
         </RouterLink>
+        <RouterLink to="/contact" box-border h-6>
+          联系我们
+        </RouterLink>
       </div>
     </nav>
   </div>
